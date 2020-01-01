@@ -1,0 +1,34 @@
+{
+  "departments": [
+    { "id": 1, "name": "Quality" },
+    { "id": 2, "name": "Management" },
+    { "id": 3, "name": "Sales" }
+  ],
+  "corrective-actions": [
+    {
+      "id": 1,
+      "what-to-do": "Solve the problem",
+      "why-to-do-it": "Because it hurts our company",
+      "how-to-do-it": "Send an letter to anvisa",
+      "where-to-do-it": "On the company",
+      "until-when": "12-12-2019"
+    },
+    {
+      "id": 2,
+      "what-to-do": "Solve the problem",
+      "why-to-do-it": "Because it hurts our company",
+      "how-to-do-it": "Send an letter to anvisa",
+      "where-to-do-it": "On the company",
+      "until-when": "12-12-2019"
+    }
+  ],
+  "non-conformities": [
+    {
+      "id": 1,
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas blandit finibus quam eu efficitur. Nulla sed nisl sit amet libero faucibus gravida quis eu urna. Donec pulvinar a neque sed feugiat. Phasellus finibus a elit nec sagittis. Proin tincidunt dolor ante. Nulla ac consectetur massa. Donec gravida varius nisl, ac ultricies nulla dictum eu. Donec erat quam, vulputate quis elementum non, convallis interdum sem. Integer a sem aliquam, elementum mauris non, scelerisque lorem. Quisque at felis nec eros eleifend interdum. Pellentesque ullamcorper lorem massa, a aliquet nulla sagittis eu. Phasellus ut dignissim massa. Phasellus accumsan varius laoreet.",
+      "ocurrence-date": "12-09-2019",
+      "departments": [1, 2],
+      "corrective-actions": [1, 2]
+    }
+  ]
+}
