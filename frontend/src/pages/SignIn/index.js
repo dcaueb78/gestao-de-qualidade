@@ -1,7 +1,20 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import logo from '~/assets/logo.png';
 
 export default function SignIn() {
-  return <h1>oi</h1>;
+  return (
+    <>
+      <img src={logo} alt="Qualyteam" />
+      <form>
+        <input type="text" placeholder="Full name" />
+        <input type="email" placeholder="Your best email" />
+
+        <button type="submit">Login</button>
+        <a href="https://qualyteam.com/pb/precos/" target="blank">
+          Take a look at our prices
+        </a>
+      </form>
+    </>
+  );
 }
