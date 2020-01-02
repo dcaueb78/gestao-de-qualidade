@@ -12,7 +12,7 @@ export function signInSuccess(user) {
   };
 }
 
-export function signFailure() {
+export function signInFailure() {
   return {
     type: '@auth/SIGN_IN_FAILURE'
   };

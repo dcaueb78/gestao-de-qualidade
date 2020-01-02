@@ -2,15 +2,16 @@ import { takeLatest, put, all } from 'redux-saga/effects';
 
 import history from '~/services/history';
 
-import { signInSuccess } from './actions';
+import { signInSuccess, signInFailure } from './actions';
 
 export function* signIn({ payload }) {
   const { name, email } = payload;
 
   if (email === 'email@utilizado.com') {
-    console.tron.error('email ja participou do trial');
+    yield put(signInFailure());
     return;
   }
+
   const user = { name, email };
   yield put(signInSuccess(user));
   history.push('dashboard');

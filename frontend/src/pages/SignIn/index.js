@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
@@ -16,6 +16,7 @@ const schema = Yup.object().shape({
 
 export default function SignIn() {
   const dispatch = useDispatch();
+  const loading = useSelector(state => state.auth.loading);
 
   function handleSubmit({ name, email }) {
     dispatch(signInRequest(name, email));
@@ -28,7 +29,7 @@ export default function SignIn() {
         <Input name="name" type="text" placeholder="Full name" />
         <Input name="email" type="email" placeholder="Your best email" />
 
-        <button type="submit">Login</button>
+        <button type="submit">{loading ? 'Loading...' : 'Login'}</button>
         <a href="https://qualyteam.com/pb/precos/" target="blank">
           Take a look at our prices
         </a>
