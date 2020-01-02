@@ -1,7 +1,15 @@
 import React from 'react';
 import { Form, Input } from '@rocketseat/unform';
+import * as Yup from 'yup';
 
 import logo from '~/assets/logo.png';
+
+const schema = Yup.object().shape({
+  name: Yup.string().required('Full name is required'),
+  email: Yup.string()
+    .email('Enter a valid email')
+    .required('Email is required')
+});
 
 export default function SignIn() {
   function handleSubmit(data) {
@@ -11,14 +19,9 @@ export default function SignIn() {
   return (
     <>
       <img src={logo} alt="Qualyteam" />
-      <Form onSubmit={handleSubmit}>
-        <Input name="name" type="text" placeholder="Full name" required />
-        <Input
-          name="email"
-          type="email"
-          placeholder="Your best email"
-          required
-        />
+      <Form schema={schema} onSubmit={handleSubmit}>
+        <Input name="name" type="text" placeholder="Full name" />
+        <Input name="email" type="email" placeholder="Your best email" />
 
         <button type="submit">Login</button>
         <a href="https://qualyteam.com/pb/precos/" target="blank">
