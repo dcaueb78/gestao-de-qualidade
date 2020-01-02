@@ -11,8 +11,8 @@ export function* signIn({ payload }) {
     console.tron.error('email ja participou do trial');
     return;
   }
-
-  yield put(signInSuccess(name, email));
+  const user = { name, email };
+  yield put(signInSuccess(user));
   history.push('dashboard');
 }
 
