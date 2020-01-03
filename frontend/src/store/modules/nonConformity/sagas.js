@@ -20,7 +20,7 @@ export function* createNonConformity({ payload }) {
 
     history.push('/dashboard');
   } catch (err) {
-    toast.error('Erro ao criar!');
+    toast.error(`Error creating nonconformity, check the fields!`);
   }
 }
 
