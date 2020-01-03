@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
+
+import * as Yup from 'yup';
+
 import ReactMultiSelect from '~/components/ReactSelect';
 import ReactDatePicker from '~/components/ReactDatePicker';
 
@@ -12,6 +15,13 @@ import api from '~/services/api';
 import 'react-datepicker/dist/react-datepicker.css';
 
 import { Container } from './styles';
+
+const schema = Yup.object().shape({
+  name: Yup.string().required('Enter a name'),
+  description: Yup.string().required('Enter a description'),
+  date: Yup.date().required('Enter a date'),
+  multiselect: Yup.array().required('Enter a department')
+});
 
 export default function CreateNonConformity() {
   const dispatch = useDispatch();
@@ -44,7 +54,7 @@ export default function CreateNonConformity() {
 
   return (
     <Container>
-      <Form onSubmit={handleSubmit}>
+      <Form schema={schema} onSubmit={handleSubmit}>
         <label htmlFor="name">
           Nonconformity name: <span>*</span>
         </label>
@@ -63,10 +73,15 @@ export default function CreateNonConformity() {
         </label>
         <ReactDatePicker name="date" id="date" />
 
-        <label htmlFor="date">
+        <label htmlFor="departments">
           Departments: <span>*</span>
         </label>
-        <ReactMultiSelect name="multiselect" multiple options={departments} />
+        <ReactMultiSelect
+          name="multiselect"
+          id="departments"
+          multiple
+          options={departments}
+        />
         <button type="submit">Create Nonconformity</button>
       </Form>
     </Container>

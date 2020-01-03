@@ -15,8 +15,8 @@ export function* createNonConformity({ payload }) {
       departments: multiselect,
       corrective_actions: []
     });
-
-    toast.success(`Nonconformity ${response.name} successfully created!`);
+    console.tron.log(response);
+    toast.success(`Nonconformity ${response.data.name} successfully created!`);
 
     history.push('/dashboard');
   } catch (err) {
