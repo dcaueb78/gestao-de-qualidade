@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Notifications from '~/components/Notifications';
@@ -7,6 +8,7 @@ import logo from '~/assets/logo-black.png';
 import { Container, Content, Profile } from './styles';
 
 export default function Header() {
+  const user = useSelector(state => state.user.user);
   return (
     <Container>
       <Content>
@@ -19,7 +21,7 @@ export default function Header() {
 
           <Profile>
             <div>
-              <strong>Nome do gestor</strong>
+              <strong>{user.name}</strong>
               <span>Minha empresa</span>
             </div>
             <img

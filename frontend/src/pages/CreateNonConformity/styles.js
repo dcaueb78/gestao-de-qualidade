@@ -6,6 +6,20 @@ export const Container = styled.div`
   max-width: 600px;
   margin: 50px auto;
 
+  h1 {
+    color: #4aa3a1;
+    text-align: center;
+    font-size: 34px;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background: #83878f;
+    margin-top: 25px;
+    opacity: 0.1;
+  }
+
   form {
     display: flex;
     flex-direction: column;

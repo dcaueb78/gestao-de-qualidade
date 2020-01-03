@@ -54,6 +54,8 @@ export default function CreateNonConformity() {
 
   return (
     <Container>
+      <h1>Create Nonconformity</h1>
+      <hr />
       <Form schema={schema} onSubmit={handleSubmit}>
         <label htmlFor="name">
           Nonconformity name: <span>*</span>
