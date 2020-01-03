@@ -2,7 +2,7 @@ import React from 'react';
 import { MdAdd } from 'react-icons/md';
 import api from '~/services/api';
 
-import { Container } from './styles';
+import { Container, Nonconformity, Status } from './styles';
 
 export default function Dashboard() {
   return (
@@ -16,7 +16,36 @@ export default function Dashboard() {
         </div>
       </header>
 
-      <ul></ul>
+      <ul>
+        <Nonconformity>
+          <div>
+            <Status value={1} />
+            <strong>Nome</strong>
+          </div>
+          <span>Date</span>
+        </Nonconformity>
+        <Nonconformity>
+          <div>
+            <Status value={1} />
+            <strong>Nome</strong>
+          </div>
+          <span>Date</span>
+        </Nonconformity>
+        <Nonconformity>
+          <div>
+            <Status value={1} />
+            <strong>Nome</strong>
+          </div>
+          <span>Date</span>
+        </Nonconformity>
+        <Nonconformity>
+          <div>
+            <Status value={1} />
+            <strong>Nome</strong>
+          </div>
+          <span>Date</span>
+        </Nonconformity>
+      </ul>
     </Container>
   );
 }

@@ -40,4 +40,36 @@ export const Container = styled.div`
       }
     }
   }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+    margin-top: 30px;
+  }
 `;
+
+export const Nonconformity = styled.li`
+  padding: 20px;
+  border-radius: 4px;
+  background: #fff;
+
+  div {
+    display: flex;
+
+    div {
+      width: 10px;
+    }
+
+    strong {
+      display: flex;;
+      color: #4aa3a1;
+      font-size: 20px;
+      font-weight: normal;
+    }
+  }
+
+  span
+`;
+
+export const Status = styled.div``;
