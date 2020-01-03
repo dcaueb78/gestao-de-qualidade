@@ -7,6 +7,7 @@ import SignIn from '../pages/SignIn';
 import Dashboard from '../pages/Dashboard';
 import NonConformityDetails from '../pages/NonConformityDetails';
 import EditNonConformity from '../pages/EditNonConformity';
+import CreateNonConformity from '../pages/CreateNonConformity';
 
 export default function Routes() {
   return (
@@ -18,6 +19,12 @@ export default function Routes() {
         path="/nonconformity/details"
         exact
         component={NonConformityDetails}
+        isPrivate
+      />
+      <Route
+        path="/nonconformity/create"
+        exact
+        component={CreateNonConformity}
         isPrivate
       />
       <Route
