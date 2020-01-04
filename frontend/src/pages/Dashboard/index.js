@@ -47,7 +47,7 @@ export default function Dashboard() {
                 <span>{nonconformity.ocurrence_date}</span>
               </div>
               <div>
-                <span>{nonconformity.id}</span>
+                <span>#{nonconformity.id}</span>
               </div>
             </div>
           </Nonconformity>
