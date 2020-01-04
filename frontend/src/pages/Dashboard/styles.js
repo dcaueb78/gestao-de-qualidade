@@ -48,6 +48,25 @@ export const Container = styled.div`
     grid-gap: 15px;
     margin-top: 30px;
   }
+
+  .load-more {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+
+    button {
+      border: 0;
+      background: none;
+      width: 200px;
+      background: blue;
+      border-radius: 4px;
+      background: #fff;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+      color: #999;
+    }
+  }
 `;
 
 export const Nonconformity = styled.li`

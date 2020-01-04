@@ -1,6 +1,7 @@
 /* eslint-disable no-sparse-arrays */
 import React, { useState, useEffect } from 'react';
 import { MdAdd } from 'react-icons/md';
+import { toast } from 'react-toastify';
 import api from '~/services/api';
 
 import { Container, Nonconformity } from './styles';
@@ -11,11 +12,16 @@ export default function Dashboard() {
 
   useEffect(() => {
     async function loadNonconformities() {
-      const response = await api.get(`non_conformities?_page=${page}&_limit=8`);
-
-      const newNonConformities = nonconformities.concat(response.data);
-
-      setNonconformities(newNonConformities);
+      const response = await api.get(
+        `non_conformities?_page=${page}&_limit=10`
+      );
+      console.tron.log(response.data);
+      if (!response.data.length) {
+        toast.error('All nonconformities presented');
+      } else {
+        const newNonConformities = nonconformities.concat(response.data);
+        setNonconformities(newNonConformities);
+      }
     }
 
     loadNonconformities();
@@ -53,9 +59,11 @@ export default function Dashboard() {
           </Nonconformity>
         ))}
       </ul>
-      <button type="button" onClick={handleLoadMore}>
-        Load more
-      </button>
+      <div className="load-more">
+        <button type="button" onClick={handleLoadMore}>
+          View more
+        </button>
+      </div>
     </Container>
   );
 }
