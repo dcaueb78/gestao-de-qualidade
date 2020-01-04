@@ -6,7 +6,6 @@ import { Container } from './styles';
 export default function ConformityDetails({ match }) {
   const [nonconformity, setNonconformity] = useState({});
   const [departments, setDepartments] = useState([]);
-  const [userId, setUserId] = useState(0);
 
   useEffect(() => {
     async function loadNonconformity() {
@@ -28,6 +27,7 @@ export default function ConformityDetails({ match }) {
     }
 
     loadNonconformity();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
