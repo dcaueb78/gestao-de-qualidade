@@ -81,7 +81,8 @@
       "description": "asds",
       "ocurrence_date": "2020-01-04T06:50:59.231Z",
       "departments": [
-        1
+        1,
+        2
       ],
       "corrective_actions": [],
       "status": 1,
@@ -130,6 +131,17 @@
       "corrective_actions": [],
       "status": 0,
       "id": 10
+    },
+    {
+      "name": "caue",
+      "description": "asds",
+      "ocurrence_date": "2020-01-04T06:51:32.973Z",
+      "departments": [
+        2
+      ],
+      "corrective_actions": [],
+      "status": 0,
+      "id": 11
     }
   ],
   "notifications": [

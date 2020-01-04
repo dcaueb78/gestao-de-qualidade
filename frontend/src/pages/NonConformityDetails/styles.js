@@ -7,7 +7,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
-  div {
+  > div {
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
@@ -49,6 +49,19 @@ export const Container = styled.div`
       color: #999;
       font-size: 18px;
       padding: 0 5px 0 5px;
+    }
+
+    div {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      span {
+        background: #eee;
+        border-radius: 4px;
+        margin-left: 5px;
+        font-size: 16px;
+        padding: 5px;
+      }
     }
   }
 `;

@@ -5,16 +5,29 @@ import { Container } from './styles';
 
 export default function ConformityDetails({ match }) {
   const [nonconformity, setNonconformity] = useState({});
+  const [departments, setDepartments] = useState([]);
+  const [userId, setUserId] = useState(0);
 
   useEffect(() => {
     async function loadNonconformity() {
-      const response = await api.get(`non_conformities/${match.params.id}`);
+      const responseNonconformity = await api.get(
+        `non_conformities/${match.params.id}`
+      );
 
-      setNonconformity(response.data);
+      setNonconformity(responseNonconformity.data);
+
+      const temp = [];
+
+      responseNonconformity.data.departments.map(async (department, index) => {
+        const response = await api.get(`departments/${department}`);
+        temp.push(response.data.name);
+        if (responseNonconformity.data.departments.length - 1 === index) {
+          setDepartments(temp);
+        }
+      });
     }
 
     loadNonconformity();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -23,6 +36,11 @@ export default function ConformityDetails({ match }) {
         <strong>{nonconformity.name}</strong>
         <hr />
         <span>{nonconformity.description}</span>
+        <div>
+          {departments.map(department => (
+            <span>{department}</span>
+          ))}
+        </div>
       </div>
     </Container>
   );
