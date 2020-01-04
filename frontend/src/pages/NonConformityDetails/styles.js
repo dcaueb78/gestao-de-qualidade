@@ -63,5 +63,63 @@ export const Container = styled.div`
         padding: 5px;
       }
     }
+
+    time {
+      span {
+        color: #999;
+        font-size: 14px;
+      }
+    }
+  }
+
+  div:not(:first-child) {
+    margin-top: 10px;
+    display: flex;
+
+    strong {
+      font-size: 18px;
+      text-align: center;
+    }
+
+    hr {
+      margin-top: 15px;
+      border: 0;
+      width: 95%;
+      margin-left: 5%;
+      height: 1px;
+      background: #999 !important;
+      opacity: 0.1;
+      margin-bottom: 5px;
+      border-radius: 2px;
+    }
+
+    .corrective-actions-field {
+      background: none;
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 20px;
+
+      strong {
+        width: 30%;
+        font-weight: normal;
+        color: #999;
+        background: none;
+        margin-left: 5px;
+        font-size: 18px;
+        padding: 5px;
+      }
+
+      span {
+        width: 70%;
+        margin: 0;
+        background: none;
+        display: flex;
+        text-align: left;
+        border: 1px solid #eee;
+      }
+    }
   }
 `;
