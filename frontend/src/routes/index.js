@@ -16,7 +16,7 @@ export default function Routes() {
 
       <Route path="/dashboard" exact component={Dashboard} isPrivate />
       <Route
-        path="/nonconformity/details"
+        path="/nonconformity/details/:id"
         exact
         component={NonConformityDetails}
         isPrivate

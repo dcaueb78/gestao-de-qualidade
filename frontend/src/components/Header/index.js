@@ -14,7 +14,7 @@ export default function Header() {
       <Content>
         <nav>
           <img src={logo} alt="Qualyteam" />
-          <Link to="dashboard">DASHBOARD</Link>
+          <Link to="/dashboard">DASHBOARD</Link>
         </nav>
         <aside>
           <Notifications />
