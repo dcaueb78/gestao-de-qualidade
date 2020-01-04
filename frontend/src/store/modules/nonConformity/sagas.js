@@ -16,7 +16,6 @@ export function* createNonConformity({ payload }) {
       corrective_actions: [],
       status: 0
     });
-    console.tron.log(response);
     toast.success(`Nonconformity ${response.data.name} successfully created!`);
 
     history.push('/dashboard');

@@ -19,7 +19,6 @@ export default function Dashboard() {
       const response = await api.get(
         `non_conformities?_page=${page}&_limit=10`
       );
-      console.tron.log(response.data);
       if (!response.data.length) {
         toast.error('All nonconformities presented');
       } else {

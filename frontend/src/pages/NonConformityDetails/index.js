@@ -1,4 +1,7 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { MdAdd } from 'react-icons/md';
 import { toast } from 'react-toastify';
 
@@ -105,6 +108,10 @@ export default function ConformityDetails({ match }) {
     }
   }
 
+  function handleNewCorrectiveAction() {
+    history.push(`/corrective-actions/${nonconformity.id}/create`);
+  }
+
   return (
     <Container status={nonconformity.status}>
       <div>
@@ -163,7 +170,7 @@ export default function ConformityDetails({ match }) {
           </div>
         </div>
       ))}
-      <footer>
+      <footer onClick={handleNewCorrectiveAction}>
         <div>
           <button type="button">
             <MdAdd size={44} color="#fff" />
@@ -174,3 +181,11 @@ export default function ConformityDetails({ match }) {
     </Container>
   );
 }
+
+ConformityDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number
+    })
+  }).isRequired
+};

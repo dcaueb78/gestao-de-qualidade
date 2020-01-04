@@ -29,6 +29,22 @@
       "how_to_do_it": "Send an letter to anvisa",
       "where_to_do_it": "On the company",
       "until_when": "12-12-2019"
+    },
+    {
+      "what_to_do": "teste",
+      "why_to_do_it": "teste",
+      "how_to_do_it": "teste",
+      "where_to_do_it": "teste",
+      "until_when": "2020-01-04T23:34:14.610Z",
+      "id": 3
+    },
+    {
+      "what_to_do": "asdsad",
+      "why_to_do_it": "asds",
+      "how_to_do_it": "testando",
+      "where_to_do_it": "asd",
+      "until_when": "2020-01-04T23:34:34.302Z",
+      "id": 4
     }
   ],
   "non_conformities": [
@@ -72,7 +88,9 @@
       "departments": [
         1
       ],
-      "corrective_actions": [],
+      "corrective_actions": [
+        4
+      ],
       "status": 1,
       "id": 5
     },
@@ -86,7 +104,8 @@
       ],
       "corrective_actions": [
         1,
-        2
+        2,
+        3
       ],
       "status": 2,
       "id": 6

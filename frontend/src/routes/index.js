@@ -6,7 +6,7 @@ import SignIn from '../pages/SignIn';
 
 import Dashboard from '../pages/Dashboard';
 import NonConformityDetails from '../pages/NonConformityDetails';
-import EditNonConformity from '../pages/EditNonConformity';
+import CreateCorrectiveActions from '../pages/CreateCorrectiveActions';
 import CreateNonConformity from '../pages/CreateNonConformity';
 
 export default function Routes() {
@@ -28,9 +28,9 @@ export default function Routes() {
         isPrivate
       />
       <Route
-        path="/nonconformity/edit"
+        path="/corrective-actions/:id/create"
         exact
-        component={EditNonConformity}
+        component={CreateCorrectiveActions}
         isPrivate
       />
 
