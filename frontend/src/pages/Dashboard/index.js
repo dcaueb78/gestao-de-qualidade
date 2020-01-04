@@ -2,7 +2,7 @@ import React from 'react';
 import { MdAdd } from 'react-icons/md';
 import api from '~/services/api';
 
-import { Container, Nonconformity, Status } from './styles';
+import { Container, Nonconformity } from './styles';
 
 export default function Dashboard() {
   return (
@@ -18,32 +18,64 @@ export default function Dashboard() {
 
       <ul>
         <Nonconformity>
+          <hr />
           <div>
-            <Status value={1} />
-            <strong>Nome</strong>
+            <div>
+              <strong>Nome Nome Nome</strong>
+              <span>17-10-2000</span>
+            </div>
+            <div>
+              <span>#1</span>
+            </div>
           </div>
-          <span>Date</span>
         </Nonconformity>
         <Nonconformity>
+          <hr />
           <div>
-            <Status value={1} />
-            <strong>Nome</strong>
+            <div>
+              <strong>Nome Nome Nome</strong>
+              <span>17-10-2000</span>
+            </div>
+            <div>
+              <span>#1</span>
+            </div>
           </div>
-          <span>Date</span>
         </Nonconformity>
         <Nonconformity>
+          <hr />
           <div>
-            <Status value={1} />
-            <strong>Nome</strong>
+            <div>
+              <strong>Nome Nome Nome</strong>
+              <span>17-10-2000</span>
+            </div>
+            <div>
+              <span>#1</span>
+            </div>
           </div>
-          <span>Date</span>
         </Nonconformity>
         <Nonconformity>
+          <hr />
           <div>
-            <Status value={1} />
-            <strong>Nome</strong>
+            <div>
+              <strong>Nome Nome Nome</strong>
+              <span>17-10-2000</span>
+            </div>
+            <div>
+              <span>#1</span>
+            </div>
           </div>
-          <span>Date</span>
+        </Nonconformity>
+        <Nonconformity>
+          <hr />
+          <div>
+            <div>
+              <strong>Nome Nome Nome</strong>
+              <span>17-10-2000</span>
+            </div>
+            <div>
+              <span>#1</span>
+            </div>
+          </div>
         </Nonconformity>
       </ul>
     </Container>

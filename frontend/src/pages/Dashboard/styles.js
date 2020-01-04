@@ -50,26 +50,55 @@ export const Container = styled.div`
 `;
 
 export const Nonconformity = styled.li`
-  padding: 20px;
+  &:hover {
+    cursor: pointer;
+  }
+
+  padding: 15px 15px 15px 15px;
   border-radius: 4px;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+
+  hr {
+    border: 0;
+    width: 100%;
+    height: 3px;
+    background: green;
+    margin-bottom: 5px;
+    border-radius: 2px;
+  }
 
   div {
     display: flex;
+    flex-direction: row;
 
     div {
-      width: 10px;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+
+      strong {
+        display: flex;
+        color: #4aa3a1;
+        font-size: 20px;
+        font-weight: normal;
+        margin-bottom: 5px;
+      }
+      span {
+        color: #999;
+      }
     }
 
-    strong {
-      display: flex;;
-      color: #4aa3a1;
-      font-size: 20px;
-      font-weight: normal;
+    div:last-child {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      span {
+        font-size: 28px;
+        font-weight: bold;
+      }
     }
   }
-
-  span
 `;
-
-export const Status = styled.div``;
