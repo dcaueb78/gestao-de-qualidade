@@ -60,7 +60,7 @@ export default function ConformityDetails({ match }) {
       status = 'In progress';
     }
 
-    const response = await api.post('notifications', {
+    await api.post('notifications', {
       content: `${status} nonconformity corrective: ${nonconformity.name}`,
       read: false
     });
@@ -70,27 +70,39 @@ export default function ConformityDetails({ match }) {
   }
 
   async function handleSuccess() {
-    const response = await api.patch(`non_conformities/${nonconformity.id}`, {
-      status: 1
-    });
-    setNonconformity(response.data);
-    createNotification(response.data.status);
+    try {
+      const response = await api.patch(`non_conformities/${nonconformity.id}`, {
+        status: 1
+      });
+      setNonconformity(response.data);
+      createNotification(response.data.status);
+    } catch (err) {
+      toast.error('There was a problem updating, please try again!');
+    }
   }
 
   async function handleInProgress() {
-    const response = await api.patch(`non_conformities/${nonconformity.id}`, {
-      status: 0
-    });
-    setNonconformity(response.data);
-    createNotification(response.data.status);
+    try {
+      const response = await api.patch(`non_conformities/${nonconformity.id}`, {
+        status: 0
+      });
+      setNonconformity(response.data);
+      createNotification(response.data.status);
+    } catch (err) {
+      toast.error('There was a problem updating, please try again!');
+    }
   }
 
   async function handleFailure() {
-    const response = await api.patch(`non_conformities/${nonconformity.id}`, {
-      status: 2
-    });
-    setNonconformity(response.data);
-    createNotification(response.data.status);
+    try {
+      const response = await api.patch(`non_conformities/${nonconformity.id}`, {
+        status: 2
+      });
+      setNonconformity(response.data);
+      createNotification(response.data.status);
+    } catch (err) {
+      toast.error('There was a problem updating, please try again!');
+    }
   }
 
   return (
