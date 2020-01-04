@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { MdAdd } from 'react-icons/md';
+
 import api from '~/services/api';
 
 import { Container } from './styles';
@@ -94,6 +96,14 @@ export default function ConformityDetails({ match }) {
           </div>
         </div>
       ))}
+      <footer>
+        <div>
+          <button type="button">
+            <MdAdd size={44} color="#fff" />
+          </button>
+          <strong>New</strong>
+        </div>
+      </footer>
     </Container>
   );
 }

@@ -37,7 +37,11 @@ export default function Dashboard() {
   }
 
   function handleNewNonconformity() {
-    history.push('nonconformity/create');
+    history.push('/nonconformity/create');
+  }
+
+  function handleOpenNonConformity(id) {
+    history.push(`/nonconformity/details/${id}`);
   }
 
   return (
@@ -53,7 +57,11 @@ export default function Dashboard() {
 
       <ul>
         {nonconformities.map(nonconformity => (
-          <Nonconformity key={nonconformity.id} status={nonconformity.status}>
+          <Nonconformity
+            onClick={() => handleOpenNonConformity(nonconformity.id)}
+            key={nonconformity.id}
+            status={nonconformity.status}
+          >
             <hr />
             <div>
               <div>
