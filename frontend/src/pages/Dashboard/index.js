@@ -1,10 +1,31 @@
-import React from 'react';
+/* eslint-disable no-sparse-arrays */
+import React, { useState, useEffect } from 'react';
 import { MdAdd } from 'react-icons/md';
 import api from '~/services/api';
 
 import { Container, Nonconformity } from './styles';
 
 export default function Dashboard() {
+  const [page, setPage] = useState(1);
+  const [nonconformities, setNonconformities] = useState([]);
+
+  useEffect(() => {
+    async function loadNonconformities() {
+      const response = await api.get(`non_conformities?_page=${page}&_limit=8`);
+
+      const newNonConformities = nonconformities.concat(response.data);
+
+      setNonconformities(newNonConformities);
+    }
+
+    loadNonconformities();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [, page]);
+
+  function handleLoadMore() {
+    setPage(page + 1);
+  }
+
   return (
     <Container>
       <header>
@@ -17,55 +38,24 @@ export default function Dashboard() {
       </header>
 
       <ul>
-        <Nonconformity status={1}>
-          <hr />
-          <div>
+        {nonconformities.map(nonconformity => (
+          <Nonconformity key={nonconformity.id} status={nonconformity.status}>
+            <hr />
             <div>
-              <strong>Nome Nome Nome</strong>
-              <span>17-10-2000</span>
+              <div>
+                <strong>{nonconformity.name}</strong>
+                <span>{nonconformity.ocurrence_date}</span>
+              </div>
+              <div>
+                <span>{nonconformity.id}</span>
+              </div>
             </div>
-            <div>
-              <span>#1</span>
-            </div>
-          </div>
-        </Nonconformity>
-        <Nonconformity status={2}>
-          <hr />
-          <div>
-            <div>
-              <strong>Nome Nome Nome</strong>
-              <span>17-10-2000</span>
-            </div>
-            <div>
-              <span>#1</span>
-            </div>
-          </div>
-        </Nonconformity>
-        <Nonconformity status={0}>
-          <hr />
-          <div>
-            <div>
-              <strong>Nome Nome Nome</strong>
-              <span>17-10-2000</span>
-            </div>
-            <div>
-              <span>#1</span>
-            </div>
-          </div>
-        </Nonconformity>
-        <Nonconformity status={1}>
-          <hr />
-          <div>
-            <div>
-              <strong>Nome Nome Nome</strong>
-              <span>17-10-2000</span>
-            </div>
-            <div>
-              <span>#1</span>
-            </div>
-          </div>
-        </Nonconformity>
+          </Nonconformity>
+        ))}
       </ul>
+      <button type="button" onClick={handleLoadMore}>
+        Load more
+      </button>
     </Container>
   );
 }

@@ -13,7 +13,8 @@ export function* createNonConformity({ payload }) {
       description,
       ocurrence_date: date,
       departments: multiselect,
-      corrective_actions: []
+      corrective_actions: [],
+      status: 0
     });
     console.tron.log(response);
     toast.success(`Nonconformity ${response.data.name} successfully created!`);
