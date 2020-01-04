@@ -64,7 +64,7 @@ export default function ConformityDetails({ match }) {
       </div>
       {correctiveActions.map((correctiveAction, index) => (
         <div className="correctiveActionDiv" key={correctiveAction.id}>
-          <strong>Ação corretiva {index}</strong>
+          <strong>Corrective action {index}</strong>
           <hr />
           <div className="corrective-actions-field">
             <strong className="corrective-actions-title">What to do:</strong>
@@ -74,6 +74,23 @@ export default function ConformityDetails({ match }) {
           <div className="corrective-actions-field">
             <strong className="corrective-actions-title">Why to do it:</strong>
             <span>{correctiveAction.why_to_do_it}</span>
+          </div>
+          <hr />
+          <div className="corrective-actions-field">
+            <strong className="corrective-actions-title">How to do it:</strong>
+            <span>{correctiveAction.how_to_do_it}</span>
+          </div>
+          <hr />
+          <div className="corrective-actions-field">
+            <strong className="corrective-actions-title">
+              Where to do it:
+            </strong>
+            <span>{correctiveAction.where_to_do_it}</span>
+          </div>
+          <hr />
+          <div className="corrective-actions-field">
+            <strong className="corrective-actions-title">Until when:</strong>
+            <span>{correctiveAction.until_when}</span>
           </div>
         </div>
       ))}
