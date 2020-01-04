@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { MdAdd } from 'react-icons/md';
+import { toast } from 'react-toastify';
 
 import api from '~/services/api';
 
@@ -49,6 +50,47 @@ export default function ConformityDetails({ match }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  async function createNotification(status) {
+    if (status === 1) {
+      status = 'Success in';
+    } else if (status === 2) {
+      status = 'Failure in';
+    } else {
+      status = 'In progress';
+    }
+
+    const response = await api.post('notifications', {
+      content: `${status} nonconformity corrective: ${nonconformity.name}`,
+      read: false
+    });
+
+    toast.success('Successfully updated');
+  }
+
+  async function handleSuccess() {
+    const response = await api.patch(`non_conformities/${nonconformity.id}`, {
+      status: 1
+    });
+    setNonconformity(response.data);
+    createNotification(response.data.status);
+  }
+
+  async function handleInProgress() {
+    const response = await api.patch(`non_conformities/${nonconformity.id}`, {
+      status: 0
+    });
+    setNonconformity(response.data);
+    createNotification(response.data.status);
+  }
+
+  async function handleFailure() {
+    const response = await api.patch(`non_conformities/${nonconformity.id}`, {
+      status: 2
+    });
+    setNonconformity(response.data);
+    createNotification(response.data.status);
+  }
+
   return (
     <Container status={nonconformity.status}>
       <div>
@@ -62,6 +104,17 @@ export default function ConformityDetails({ match }) {
           {departments.map(department => (
             <span>{department}</span>
           ))}
+        </div>
+        <div className="status-buttons">
+          <button onClick={handleFailure} type="button">
+            Failure
+          </button>
+          <button onClick={handleInProgress} type="button">
+            In progress
+          </button>
+          <button onClick={handleSuccess} type="button">
+            Sucess
+          </button>
         </div>
       </div>
       {correctiveActions.map((correctiveAction, index) => (

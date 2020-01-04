@@ -22,7 +22,7 @@ export default function Notifications() {
 
   useEffect(() => {
     async function loadNotificaions() {
-      const response = await api.get('notifications');
+      const response = await api.get('notifications?_sort=id&_order=desc');
 
       setNotifications(response.data);
     }

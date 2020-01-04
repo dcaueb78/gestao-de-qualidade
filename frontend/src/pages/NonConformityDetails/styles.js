@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { lighten } from 'polished';
+import { lighten, darken } from 'polished';
 
 export const Container = styled.div`
   max-width: 600px;
@@ -69,6 +69,38 @@ export const Container = styled.div`
       span {
         color: #999;
         font-size: 14px;
+      }
+    }
+  }
+
+  .status-buttons {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    button {
+      width: 30%;
+      margin: 5px 0 0;
+      height: 32px;
+      font-weight: bold;
+      color: #fff;
+      border: 0;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: background 0.2s;
+
+      &:first-child {
+        background: #d5212e;
+        &:hover {
+          background: ${darken(0.03, '#d5212e')};
+        }
+      }
+      &:last-child {
+        background: #569f39;
+        &:hover {
+          background: ${darken(0.03, '#569f39')};
+        }
       }
     }
   }
