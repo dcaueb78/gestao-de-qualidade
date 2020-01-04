@@ -3,6 +3,7 @@ import { MdAdd } from 'react-icons/md';
 import { toast } from 'react-toastify';
 
 import api from '~/services/api';
+import history from '~/services/history';
 
 import { Container } from './styles';
 
@@ -65,6 +66,7 @@ export default function ConformityDetails({ match }) {
     });
 
     toast.success('Successfully updated');
+    history.goBack();
   }
 
   async function handleSuccess() {
