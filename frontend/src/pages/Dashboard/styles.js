@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { lighten } from 'polished';
 
 export const Container = styled.div`
@@ -14,6 +14,7 @@ export const Container = styled.div`
     align-items: center;
 
     div {
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
       &:hover {
         cursor: pointer;
         transform: translateY(-5px);
@@ -52,7 +53,10 @@ export const Container = styled.div`
 export const Nonconformity = styled.li`
   &:hover {
     cursor: pointer;
+    transform: translateY(-5px);
+    transition: all 0.2s;
   }
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
 
   padding: 15px 15px 15px 15px;
   border-radius: 4px;
@@ -64,9 +68,22 @@ export const Nonconformity = styled.li`
     border: 0;
     width: 100%;
     height: 3px;
-    background: green;
+
+    background: #999;
     margin-bottom: 5px;
     border-radius: 2px;
+
+    ${props =>
+      props.status === 1 &&
+      css`
+        background: #569f39 !important;
+      `}
+
+    ${props =>
+      props.status === 2 &&
+      css`
+        background: #d5212e !important;
+      `}
   }
 
   div {

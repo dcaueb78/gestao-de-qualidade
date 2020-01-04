@@ -17,7 +17,7 @@ export default function Dashboard() {
       </header>
 
       <ul>
-        <Nonconformity>
+        <Nonconformity status={1}>
           <hr />
           <div>
             <div>
@@ -29,7 +29,7 @@ export default function Dashboard() {
             </div>
           </div>
         </Nonconformity>
-        <Nonconformity>
+        <Nonconformity status={2}>
           <hr />
           <div>
             <div>
@@ -41,7 +41,7 @@ export default function Dashboard() {
             </div>
           </div>
         </Nonconformity>
-        <Nonconformity>
+        <Nonconformity status={0}>
           <hr />
           <div>
             <div>
@@ -53,19 +53,7 @@ export default function Dashboard() {
             </div>
           </div>
         </Nonconformity>
-        <Nonconformity>
-          <hr />
-          <div>
-            <div>
-              <strong>Nome Nome Nome</strong>
-              <span>17-10-2000</span>
-            </div>
-            <div>
-              <span>#1</span>
-            </div>
-          </div>
-        </Nonconformity>
-        <Nonconformity>
+        <Nonconformity status={1}>
           <hr />
           <div>
             <div>
