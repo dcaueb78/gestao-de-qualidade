@@ -11,6 +11,7 @@ import ReactDatePicker from '~/components/ReactDatePicker';
 import { createNonConformityRequest } from '~/store/modules/nonConformity/actions';
 
 import api from '~/services/api';
+import history from '~/services/history';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -52,6 +53,10 @@ export default function CreateNonConformity() {
     dispatch(createNonConformityRequest(data));
   }
 
+  function handleBack() {
+    history.push('dashboard');
+  }
+
   return (
     <Container>
       <h1>Create Nonconformity</h1>
@@ -86,6 +91,9 @@ export default function CreateNonConformity() {
         />
         <button type="submit">Create Nonconformity</button>
       </Form>
+      <button onClick={handleBack} type="button">
+        Back
+      </button>
     </Container>
   );
 }

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { MdAdd } from 'react-icons/md';
 import { toast } from 'react-toastify';
 import api from '~/services/api';
+import history from '~/services/history';
 
 import { Container, Nonconformity } from './styles';
 
@@ -32,9 +33,13 @@ export default function Dashboard() {
     setPage(page + 1);
   }
 
+  function handleNewNonconformity() {
+    history.push('nonconformity/create');
+  }
+
   return (
     <Container>
-      <header>
+      <header onClick={handleNewNonconformity}>
         <div>
           <button type="button">
             <MdAdd size={44} color="#fff" />

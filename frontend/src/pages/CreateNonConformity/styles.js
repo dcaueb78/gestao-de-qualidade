@@ -79,4 +79,23 @@ export const Container = styled.div`
       }
     }
   }
+
+  button {
+    &:last-child {
+      margin: 10px 0 0;
+      width: 100%;
+      height: 44px;
+      background: #ccc;
+      font-weight: bold;
+      color: #fff;
+      border: 0;
+      border-radius: 4px;
+      font-size: 16px;
+      transition: background 0.2s;
+
+      &:hover {
+        background: ${darken(0.03, '#ccc')};
+      }
+    }
+  }
 `;
