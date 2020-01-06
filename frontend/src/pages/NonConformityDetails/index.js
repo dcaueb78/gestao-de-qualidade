@@ -49,6 +49,17 @@ export default function ConformityDetails({ match }) {
           );
 
           correctiveActionTemp.push(response.data);
+          
+          correctiveActionTemp.map(date => {
+            date.dateFormatted = format(
+              parseISO(responseNonconformity.data.ocurrence_date),
+              'MM/dd/yyyy',
+              {
+                locale: enUS
+              }
+            );
+          });
+          
           if (
             responseNonconformity.data.corrective_actions.length - 1 ===
             index
@@ -175,7 +186,7 @@ export default function ConformityDetails({ match }) {
           <hr />
           <div className="corrective-actions-field">
             <strong className="corrective-actions-title">Until when:</strong>
-            <span>{correctiveAction.until_when}</span>
+            <span>{correctiveAction.dateFormatted}</span>
           </div>
         </div>
       ))}
