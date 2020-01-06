@@ -123,7 +123,7 @@ export default function ConformityDetails({ match }) {
         <span>{nonconformity.description}</span>
         <div>
           {departments.map(department => (
-            <span>{department}</span>
+            <span key={department}>{department}</span>
           ))}
         </div>
         <div className="status-buttons">
@@ -140,7 +140,7 @@ export default function ConformityDetails({ match }) {
       </div>
       {correctiveActions.map((correctiveAction, index) => (
         <div className="correctiveActionDiv" key={correctiveAction.id}>
-          <strong>Corrective action {index}</strong>
+          <strong>Corrective action {index + 1}</strong>
           <hr />
           <div className="corrective-actions-field">
             <strong className="corrective-actions-title">What to do:</strong>
@@ -185,7 +185,7 @@ export default function ConformityDetails({ match }) {
 ConformityDetails.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number
+      id: PropTypes.string
     })
   }).isRequired
 };

@@ -68,11 +68,12 @@ export default function CreateCorrectiveActions({ match }) {
     <Container>
       <h1>Create Corrective Action</h1>
       <hr />
-      <Form schema={schema} onSubmit={handleSubmit}>
-        <label htmlFor="what_to_do">
-          What to do: <span>*</span>
+      <Form data-testid="submit" schema={schema} onSubmit={handleSubmit}>
+        <label htmlFor="what_to_do" data-testid="label">
+          What to do:<span>*</span>
         </label>
         <Input
+          data-testid="what_to_do"
           type="text"
           id="what_to_do"
           name="what_to_do"
@@ -126,7 +127,7 @@ export default function CreateCorrectiveActions({ match }) {
 CreateCorrectiveActions.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      id: PropTypes.number
+      id: PropTypes.string
     })
   }).isRequired
 };
