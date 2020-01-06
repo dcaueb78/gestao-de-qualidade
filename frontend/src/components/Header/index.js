@@ -22,7 +22,7 @@ export default function Header() {
           <Profile>
             <div>
               <strong>{user.name}</strong>
-              <span>Minha empresa</span>
+              <span>My business</span>
             </div>
             <img
               src="https://api.adorable.io/avatars/50/abott@adorable.png"
