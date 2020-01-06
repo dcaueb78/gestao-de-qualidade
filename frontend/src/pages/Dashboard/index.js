@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-sparse-arrays */
-
 import React, { useState, useEffect } from 'react';
 import { MdAdd } from 'react-icons/md';
 import { toast } from 'react-toastify';
 import api from '~/services/api';
 import history from '~/services/history';
+import { format, parseISO } from 'date-fns';
+import { enUS } from 'date-fns/locale';
 
 import { Container, Nonconformity } from './styles';
 
@@ -23,6 +24,15 @@ export default function Dashboard() {
         toast.error('All nonconformities presented');
       } else {
         const newNonConformities = nonconformities.concat(response.data);
+        newNonConformities.map(newNonConformity => {
+          newNonConformity.dateFormatted = format(
+            parseISO(newNonConformity.ocurrence_date),
+            'MM/dd/yyyy',
+            {
+              locale: enUS
+            }
+          );
+        });
         setNonconformities(newNonConformities);
       }
     }
@@ -65,7 +75,7 @@ export default function Dashboard() {
             <div>
               <div>
                 <strong>{nonconformity.name}</strong>
-                <span>{nonconformity.ocurrence_date}</span>
+                <span>{nonconformity.dateFormatted}</span>
               </div>
               <div>
                 <span>#{nonconformity.id}</span>

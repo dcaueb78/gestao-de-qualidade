@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { MdAdd } from 'react-icons/md';
 import { toast } from 'react-toastify';
+import { format, parseISO } from 'date-fns';
+import { enUS } from 'date-fns/locale';
 
 import api from '~/services/api';
 import history from '~/services/history';
@@ -21,6 +23,13 @@ export default function ConformityDetails({ match }) {
         `non_conformities/${match.params.id}`
       );
 
+      responseNonconformity.data.dateFormatted = format(
+        parseISO(responseNonconformity.data.ocurrence_date),
+        'MM/dd/yyyy',
+        {
+          locale: enUS
+        }
+      );
       setNonconformity(responseNonconformity.data);
 
       const departmentsTemp = [];
@@ -117,7 +126,7 @@ export default function ConformityDetails({ match }) {
       <div>
         <strong>{nonconformity.name}</strong>
         <time>
-          <span>{nonconformity.ocurrence_date}</span>
+          <span>{nonconformity.dateFormatted}</span>
         </time>
         <hr />
         <span>{nonconformity.description}</span>
