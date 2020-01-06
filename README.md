@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="https://qualyteam.com/wp-content/uploads/2019/01/logo-branco.png" alt="Qualyteam" >
+  <img src="http://www.etic.ifc-camboriu.edu.br/2018/img/parceiros/logo-qualyteam.png" alt="Qualyteam" >
 
 </h1>
 
